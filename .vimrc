@@ -32,6 +32,8 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " if open file, then focus it
 autocmd Vimenter * wincmd l 
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " YouComleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python3'
