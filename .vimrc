@@ -67,6 +67,9 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" delimitMate
+let delimitMate_expand_cr = 1
+filetype indent plugin on
 
 " tarbar
 autocmd Vimenter * :TagbarOpen 
@@ -99,3 +102,4 @@ set number
 set hlsearch
 set incsearch
 set ignorecase
+
