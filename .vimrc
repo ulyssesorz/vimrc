@@ -10,7 +10,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
-" Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
@@ -32,7 +31,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " if open file, then focus it
-autocmd Vimenter * if argc() > 0 && !isdirectory(argv()[0]) && !exists("s:std_in") | wincmd l | endif
+autocmd Vimenter * wincmd l 
 
 " YouComleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python3'
@@ -42,7 +41,7 @@ set completeopt=menu,menuone
 
 " aireline
 set t_Co=256
-let g:airline_theme="luna" 
+" let g:airline_theme="light"
 let g:airline_powerline_fonts = 1   
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -51,6 +50,23 @@ map <C-P> :bp<CR>
 map <C-D> :bd<CR>
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
 
 " tarbar
 autocmd Vimenter * :TagbarOpen 
@@ -71,7 +87,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-
 " other
 map <C-J> <C-W>j
 map <C-K> <C-W>k
@@ -83,3 +98,4 @@ set expandtab
 set number
 set hlsearch
 set incsearch
+set ignorecase
