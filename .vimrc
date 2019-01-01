@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
-Plugin 'Raimondi/delimitMate'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -32,18 +32,18 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " if open file, then focus it
 autocmd Vimenter * wincmd l 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+nmap <F3> :NERDTreeToggle<CR>
 
 " YouComleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_enable_diagnostic_signs = 0
+" let g:ycm_enable_diagnostic_highlighting = 0
 set completeopt=menu,menuone
 
 " aireline
 set t_Co=256
-" let g:airline_theme="light"
 let g:airline_powerline_fonts = 1   
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -69,12 +69,9 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" delimitMate
-let delimitMate_expand_cr = 1
-filetype indent plugin on
-
 " tarbar
 autocmd Vimenter * :TagbarOpen 
+nmap <F4> :TagbarToggle<CR>
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
@@ -104,4 +101,6 @@ set number
 set hlsearch
 set incsearch
 set ignorecase
-
+set smartindent
+nmap <F2> :set nu!<CR>
+set so=3
