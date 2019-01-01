@@ -101,6 +101,5 @@ set number
 set hlsearch
 set incsearch
 set ignorecase
-set smartindent
 nmap <F2> :set nu!<CR>
 set so=3
