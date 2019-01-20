@@ -13,6 +13,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,18 +39,17 @@ nmap <F3> :NERDTreeToggle<CR>
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_rust_src_path='/home/panzhihao/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 " let g:ycm_enable_diagnostic_signs = 0
 " let g:ycm_enable_diagnostic_highlighting = 0
 set completeopt=menu,menuone
 
 " aireline
+let g:airline_theme='simple'
 set t_Co=256
 let g:airline_powerline_fonts = 1   
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-map <C-N> :bn<CR>
-map <C-P> :bp<CR>
-map <C-D> :bd<CR>
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 if !exists('g:airline_symbols')
@@ -89,11 +89,16 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
+" rust
+let g:rustfmt_autosave = 1
+
 " other
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
+map <C-N> :bn<CR>
+map <C-D> :bd<CR>
 set shiftwidth=4 
 set tabstop=4
 set expandtab
@@ -103,3 +108,4 @@ set incsearch
 set ignorecase
 nmap <F2> :set nu!<CR>
 set so=3
+set hidden
