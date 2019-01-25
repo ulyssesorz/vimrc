@@ -4,7 +4,6 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
@@ -18,30 +17,8 @@ Plugin 'rust-lang/rust.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" nerdtree
-" open a NERDTree automatically when vim starts up
-autocmd Vimenter * NERDTree
-" open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd Vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" open NERDTree automatically when vim starts up on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd Vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-" if open file, then focus it
-autocmd Vimenter * wincmd l 
-nmap <F3> :NERDTreeToggle<CR>
-
 " YouComleteMe
-let g:ycm_server_python_interpreter='/usr/bin/python3'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_rust_src_path='/home/panzhihao/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-" let g:ycm_enable_diagnostic_signs = 0
-" let g:ycm_enable_diagnostic_highlighting = 0
 set completeopt=menu,menuone
 
 " aireline
