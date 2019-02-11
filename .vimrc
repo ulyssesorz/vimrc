@@ -19,7 +19,10 @@ filetype plugin indent on    " required
 
 " YouComleteMe
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 set completeopt=menu,menuone
+map <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " aireline
 let g:airline_theme='simple'
@@ -84,5 +87,5 @@ set hlsearch
 set incsearch
 set ignorecase
 nmap <F2> :set nu!<CR>
-set so=3
+set so=2
 set hidden
