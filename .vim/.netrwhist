@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/etc/sudoers.d'
+let g:netrw_dirhist_2='/home/panzhihao/vimrc'
+let g:netrw_dirhist_3='/home/panzhihao/vimrc/lpc_conf/.vim/plugin'

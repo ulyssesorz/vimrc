@@ -4,9 +4,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'rking/ag.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'taglist.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
@@ -40,19 +38,12 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " nerdcommenter
-" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-" Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_c = 1
-" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
 " taglist
@@ -91,11 +82,8 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set number
-set hlsearch
 set incsearch
-set ignorecase
 nmap <F2> :set nu!<CR>
-set so=3
 set hidden
 set fileencodings=utf8,gbk
 set wildmenu wildmode=full 
