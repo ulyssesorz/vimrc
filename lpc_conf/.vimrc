@@ -23,21 +23,15 @@ let g:airline#extensions#whitespace#symbol = '!'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
 " unicode symbols
-let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -56,19 +50,19 @@ let g:Tlist_Enable_Fold_Column=0
 let g:Tlist_Exit_OnlyWindow=1
 let g:Tlist_Use_SingleClick=1
 let g:Tlist_Compact_Format=1
-let g:Tlist_Ctags_Cmd = "/usr/local/bin/exctags" 
+let g:Tlist_Ctags_Cmd = "/usr/local/bin/exctags"
 let g:Tlist_WinWidth = 35
 set tags=./tags,../tags,./**/tags  
 set tags+=~/.vim/systags
 set tags=tags;
 nmap <silent> <F4>  :TlistToggle<CR> 
+map <silent> <F12> :!exctags --fields=+iaS --extra=+q -R . <CR>
 
 " lpc
 set autowrite
 nmap <F5> <ESC>:!lpc_compile %<CR>
 nmap <F6> <ESC>:!lpc_update %<CR>
 nmap <F10> <ESC>:!lpc_test %  
-
 
 " other
 map <C-J> <C-W>j
@@ -85,8 +79,7 @@ set number
 set incsearch
 nmap <F2> :set nu!<CR>
 set hidden
-set fileencodings=utf8,gbk
+set fileencodings=utf8
 set wildmenu wildmode=full 
 set wildchar=<Tab> wildcharm=<C-Z>
 noremap <c-p> :edit <c-z>
-
