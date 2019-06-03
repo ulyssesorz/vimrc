@@ -11,13 +11,15 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ervandew/supertab'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " aireline
 let g:airline_theme='simple'
 set t_Co=256
-let g:airline_powerline_fonts = 1   
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -46,11 +48,22 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Vimenter * :TagbarOpen
 nmap <F4> :TagbarToggle<CR>
 
+" better_whitespace
+let g:better_whitespace_enabled=0
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+
+" YouComleteMe
+let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+set completeopt=menu,menuone
+
 " other
 map <C-N> :bn<CR>
 map <C-P> :bp<CR>
 map <C-D> :bd<CR>
-set shiftwidth=4 
+set shiftwidth=4
 set tabstop=4
 set expandtab
 set number
@@ -59,6 +72,7 @@ set hlsearch
 map <F2> :set nu!<CR>
 set hidden
 set fileencodings=utf8
-set wildmenu wildmode=full 
+set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 map <c-p> :edit <c-z>
+map <c-]> :YcmCompleter GoTo<CR>
