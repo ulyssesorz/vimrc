@@ -6,16 +6,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
-Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'rust-lang/rust.vim'
 Plugin 'ervandew/supertab'
+Plugin 'rking/ag.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -55,6 +58,15 @@ nmap <F4> :TagbarToggle<CR>
 let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+
+" YouComleteMe let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+set completeopt=menu,menuone
+map <c-]> :YcmCompleter GoToDefinition<CR>
+"compatible with supertab
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 " other
 map <C-N> :bn<CR>
