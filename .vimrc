@@ -63,10 +63,12 @@ let g:strip_whitespace_confirm=0
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt=menu,menuone
-map <c-]> :YcmCompleter GoToDefinition<CR>
+map <c-]> :YcmCompleter GoTo<CR>
 "compatible with supertab
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_signs = 0
 
 " other
 map <C-N> :bn<CR>
