@@ -19,6 +19,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
+Plugin 'rhysd/vim-clang-format'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -71,9 +72,12 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_auto_trigger = 0
 
+" clang format
+nmap <C-L> :ClangFormat<CR>
+
 " other
-" map <C-N> :bn<CR>
-" map <C-D> :bd<CR>
+map <C-N> :bn<CR>
+map <C-D> :bd<CR>
 set shiftwidth=4
 set tabstop=4
 set expandtab
