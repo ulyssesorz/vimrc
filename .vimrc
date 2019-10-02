@@ -60,7 +60,8 @@ let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-" YouComleteMe let g:ycm_server_python_interpreter='/usr/bin/python3'
+" YouComleteMe
+let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt=menu,menuone
