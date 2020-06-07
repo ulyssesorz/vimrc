@@ -3,7 +3,7 @@ filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -95,3 +95,5 @@ set hidden
 set fileencodings=utf8
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
+
+nmap <F5> <ESC>:w<CR>:!clear && bash %<CR>
