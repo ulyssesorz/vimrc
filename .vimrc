@@ -88,3 +88,4 @@ set hidden
 set fileencodings=utf8
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
+set encoding=utf-8
