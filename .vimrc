@@ -9,7 +9,7 @@ Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
-Plug 'lasorda/tagbar'
+Plug 'preservim/tagbar'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-rls']
