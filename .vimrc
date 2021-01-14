@@ -12,7 +12,7 @@ Plug 'lasorda/vim-snippets'
 Plug 'lasorda/tagbar'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists','coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-rls']
+let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-rls']
 
 " TextEdit might fail if hidden is not set.
 set hidden
