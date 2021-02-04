@@ -10,9 +10,12 @@ Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
 Plug 'lasorda/tagbar'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls']
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -124,8 +127,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " aireline
 let g:airline_theme='simple'
@@ -165,8 +167,13 @@ let g:strip_whitespace_confirm=0
 autocmd BufNewFile,BufRead * TagbarOpen
 nmap <F4> :TagbarToggle<CR>
 
+"
 " clang format
 nmap <C-L> :ClangFormat<CR>
+
+" fzf
+let $FZF_DEFAULT_COMMAND="find -type f -name \"*.h\" -o -name \"*.c\" -not -path \"*reward_data*\" -not -path \"*npc_fight*\""
+nnoremap <silent><nowait> <space>p  :Files<CR>
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
