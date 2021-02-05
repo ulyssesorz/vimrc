@@ -180,6 +180,8 @@ nmap <C-L> :ClangFormat<CR>
 let $FZF_DEFAULT_COMMAND='find -type f -not -path "*.dat"  -not -path "*reward_data*" -not -path "*/fight/*data/*"  -not -path "*/fight/npc_fighter_*" -not -path "*object_data*" -not -path "*/.svn/*" -not -path "*/dat/*" -not -path "*/log/*" -not -path "*/binlog/*" -not -path "*/h5_ca/*" '
 nnoremap <silent><nowait> <space>f  :Files<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse-list']}, <bang>0)
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
