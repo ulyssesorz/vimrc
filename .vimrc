@@ -9,9 +9,9 @@ Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
-Plug 'lasorda/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls']
@@ -112,22 +112,32 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
+" mappings
+nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
-" Mappings for CoCList
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" " Mappings for CoCList
+" " Manage extensions.
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" " Show commands.
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" " Find symbol of current document.
+" nnoremap <silent><nowait> <space>o  :CocFzfList outline<cr>
+" " Search workspace symbols.
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" " Do default action for next item.
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" " Do default action for previous item.
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" " Resume latest coc list.
+" " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " aireline
 let g:airline_theme='simple'
@@ -163,21 +173,18 @@ let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-" tarbar
-autocmd BufNewFile,BufRead * TagbarOpen
-nmap <F4> :TagbarToggle<CR>
-
-"
 " clang format
 nmap <C-L> :ClangFormat<CR>
 
 " fzf
-let $FZF_DEFAULT_COMMAND="find -type f -name \"*.h\" -o -name \"*.c\" -not -path \"*reward_data*\" -not -path \"*npc_fight*\""
-nnoremap <silent><nowait> <space>p  :Files<CR>
+let $FZF_DEFAULT_COMMAND='find -type f -not -path "*.dat"  -not -path "*reward_data*" -not -path "*/fight/*data/*"  -not -path "*/fight/npc_fighter_*" -not -path "*object_data*" -not -path "*/.svn/*" -not -path "*/dat/*" -not -path "*/log/*" -not -path "*/binlog/*" -not -path "*/h5_ca/*" '
+nnoremap <silent><nowait> <space>f  :Files<CR>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 nmap <F2> :set nu!<CR>
+set mouse=a
 set smartindent
 set autowrite
 set shiftwidth=4
