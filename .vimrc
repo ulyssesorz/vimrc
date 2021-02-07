@@ -120,24 +120,9 @@ nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
 nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
 nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+" nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <space>s       :<C-u>Ag
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
-
-" " Mappings for CoCList
-" " Manage extensions.
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" " Show commands.
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" " Find symbol of current document.
-" nnoremap <silent><nowait> <space>o  :CocFzfList outline<cr>
-" " Search workspace symbols.
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" " Do default action for next item.
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" " Do default action for previous item.
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" " Resume latest coc list.
-" " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " aireline
 let g:airline_theme='simple'
@@ -181,7 +166,10 @@ let $FZF_DEFAULT_COMMAND='find -type f -not -path "*.dat"  -not -path "*reward_d
 nnoremap <silent><nowait> <space>f  :Files<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse-list']}, <bang>0)
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
+
+command! -bang -nargs=? -complete=dir Ag
+    \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
