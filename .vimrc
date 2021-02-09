@@ -9,7 +9,7 @@ Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 call plug#end()
@@ -120,9 +120,14 @@ nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
 nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
 nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-" nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-nnoremap <space>s       :<C-u>Ag
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+
+" fzf
+let g:fzf_command_prefix = 'Fzf'
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+nnoremap <silent><nowait> <space>f  :FzfFiles<CR>
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
 
 " aireline
 let g:airline_theme='simple'
@@ -160,16 +165,6 @@ let g:strip_whitespace_confirm=0
 
 " clang format
 nmap <C-L> :ClangFormat<CR>
-
-" fzf
-let $FZF_DEFAULT_COMMAND='find -type f -not -path "*.dat"  -not -path "*reward_data*" -not -path "*/fight/*data/*"  -not -path "*/fight/npc_fighter_*" -not -path "*object_data*" -not -path "*/.svn/*" -not -path "*/dat/*" -not -path "*/log/*" -not -path "*/binlog/*" -not -path "*/h5_ca/*" '
-nnoremap <silent><nowait> <space>f  :Files<CR>
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
-
-command! -bang -nargs=? -complete=dir Ag
-    \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
