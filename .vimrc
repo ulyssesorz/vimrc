@@ -127,7 +127,7 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 let g:fzf_command_prefix = 'Fzf'
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 nnoremap <silent><nowait> <space>f  :FzfFiles<CR>
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
+command! -bang -nargs=? -complete=dir FzfFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
 
 " aireline
 let g:airline_theme='simple'
