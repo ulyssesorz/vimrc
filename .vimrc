@@ -5,13 +5,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
+Plug 'fatih/vim-go'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-lpc', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls']
@@ -125,9 +125,10 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 nnoremap <silent><nowait> <space>f  :FzfFiles<CR>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 command! -bang -nargs=? -complete=dir FzfFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
+command! -bang -nargs=? -complete=dir FzfAg call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
 
 " aireline
 let g:airline_theme='simple'
