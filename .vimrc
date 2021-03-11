@@ -184,3 +184,4 @@ set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
 set belloff=all
+set signcolumn=yes
