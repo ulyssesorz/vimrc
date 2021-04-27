@@ -158,8 +158,6 @@ let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-" clang format
-nmap <C-L> :ClangFormat<CR>
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
