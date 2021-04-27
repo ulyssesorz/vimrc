@@ -8,7 +8,7 @@ curl -sL install-node.now.sh/lts | bash
 
 Download vimrc
 ```sh
-curl -sL -o ~/.vimrc https://raw.githubusercontent.com/lasorda/vimrc/master/vimrc
+curl -sSL -o ~/.vimrc https://raw.githubusercontent.com/lasorda/vimrc/master/vimrc
 ```
 
 ## Features
