@@ -9,7 +9,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/lpc.vim'
@@ -153,6 +152,7 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -160,11 +160,6 @@ let g:NERDAltDelims_c = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
-
-" better_whitespace
-let g:better_whitespace_enabled=0
-let g:strip_whitespace_on_save=1
-let g:strip_whitespace_confirm=0
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
