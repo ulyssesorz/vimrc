@@ -125,6 +125,10 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
+hi! CocErrorSign guifg=#d1666a
+hi! CocInfoSign guibg=#353b45
+hi! CocWarningSign guifg=#d1cd66
+
 " fzf
 let g:fzf_command_prefix = 'Fzf'
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
