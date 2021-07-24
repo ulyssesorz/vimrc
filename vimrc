@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'jrozner/vim-antlr'
 Plug 'fatih/vim-go'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-lpcd', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls']
@@ -181,4 +182,3 @@ set fileencodings=utf8,gbk
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
-set belloff=all
