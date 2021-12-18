@@ -5,7 +5,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
@@ -21,7 +20,7 @@ Plug 'fatih/vim-go'
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-lpcd', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls']
+let g:coc_global_extensions = ['coc-lpcd', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs']
 
 " TextEdit might fail if hidden is not set.
 set hidden
