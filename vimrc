@@ -10,7 +10,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-clang-format'
-Plug 'lasorda/lpc.vim'
 Plug 'lasorda/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
@@ -20,7 +19,7 @@ Plug 'fatih/vim-go'
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-lpcd', 'coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs']
+let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs']
 
 " TextEdit might fail if hidden is not set.
 set hidden
