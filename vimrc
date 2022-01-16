@@ -9,7 +9,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-signify'
-Plug 'rhysd/vim-clang-format'
 Plug 'lasorda/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
@@ -17,9 +16,10 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'jrozner/vim-antlr'
 Plug 'fatih/vim-go'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'lervag/vimtex'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs']
+let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs', 'coc-markdown-preview-enhanced', 'coc-webview', 'coc-vimtex']
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -166,17 +166,16 @@ let g:NERDToggleCheckAllLines = 1
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
-nmap <F2> :set nu!<CR>
+set number
 set mouse=a
 set smartindent
 set autowrite
 set shiftwidth=4
 set tabstop=4
 set expandtab
-set number
 set incsearch
 set hlsearch
-set fileencodings=utf8,gbk
+set fileencodings=utf8
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
