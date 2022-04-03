@@ -130,9 +130,10 @@ hi! CocWarningSign guifg=#d1cd66
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-nnoremap <silent><nowait> <space>f  :FzfFiles<CR>
-command! -bang -nargs=? -complete=dir FzfFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse-list']}), <bang>0)
+command! -bang -nargs=* FzfAg call fzf#vim#ag(<q-args>, '--word-regexp', fzf#vim#with_preview(), <bang>0)
+nnoremap <silent> <space>f :FzfFiles<CR>
+nnoremap <silent> <space>a :exe 'FzfAg '.expand('<cword>') <CR>
+nnoremap <silent> <space>b :FzfBuffers <CR>
 
 " aireline
 let g:airline_theme='simple'
