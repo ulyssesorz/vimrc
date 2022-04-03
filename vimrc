@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-signify'
-Plug 'lasorda/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
