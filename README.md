@@ -1,7 +1,5 @@
 # vimrc
 
-## Quick Start
-
 Install [nodejs](https://nodejs.org/en/download/) >= 12.12:
 
 ```sh
