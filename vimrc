@@ -1,25 +1,23 @@
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
-Plug 'mhinz/vim-signify'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
-Plug 'jrozner/vim-antlr'
 Plug 'fatih/vim-go'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'lervag/vimtex'
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-clangd', 'coc-tsserver', 'coc-markdownlint', 'coc-rls', 'coc-pairs', 'coc-markdown-preview-enhanced', 'coc-webview', 'coc-vimtex']
+let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-markdownlint', 'coc-pairs', 'coc-clangd', 'coc-git', 'coc-tsserver', 'coc-markdown-preview-enhanced', 'coc-webview']
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -63,8 +61,16 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" GoTo code navigation.
-nmap <silent> <C-]> <Plug>(coc-definition)
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> go <C-o>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -100,6 +106,12 @@ augroup end
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -111,22 +123,18 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " mappings
-nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
-nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+nnoremap <silent><nowait> <space><space> :<C-u>CocFzfList<CR>
+nnoremap <silent><nowait> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent><nowait> <space>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent><nowait> <space>l       :<C-u>CocFzfList location<CR>
+nnoremap <silent><nowait> <space>o       :<C-u>CocFzfList outline<CR>
+nnoremap <silent><nowait> <space>s       :<C-u>CocCommand clangd.switchSourceHeader<CR>
+nnoremap <silent><nowait> <space>j       :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k       :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p       :<C-u>CocFzfListResume<CR>
 
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
-
-hi! CocErrorSign guifg=#d1666a
-hi! CocInfoSign guibg=#353b45
-hi! CocWarningSign guifg=#d1cd66
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
@@ -165,8 +173,52 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+" vim-better-whitespace
+let g:better_whitespace_enabled=1
+
+" asynctasks
+let g:asynctasks_term_pos = 'floaterm_reuse'
+let g:asynctasks_term_rows = 10
+let g:asynctasks_term_reuse = 1
+let g:asynctasks_term_hidden = 1
+noremap <silent><F4> :AsyncTask tmake<cr>
+noremap <silent><F5> :AsyncTask tcc<cr>
+noremap <silent><F9> :AsyncTask tcc_transfer<cr>
+let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
+
+let g:floaterm_keymap_toggle = '<F6>'
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_next   = '<F8>'
+let g:floaterm_opener = 'edit'
+hi Floaterm guibg=black
+hi FloatermBorder guibg=orange guifg=cyan
+autocmd TermOpen * setlocal nonumber norelativenumber
+
+" vim-cpp-modern
+let g:cpp_attributes_highlight = 1
+let g:cpp_simple_highlight = 1
+
+" clang-format
+autocmd FileType bzl command! -nargs=0 Format :silent !buildifier %
+
+" rainbow_parentheses
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType * RainbowParentheses
+augroup END
+" List of colors that you do not want. ANSI code or #RRGGBB
+" let g:rainbow#blacklist = [233, 234]
+
+" colorscheme
+let g:codedark_term256=1
+set t_ut=
+colorscheme codedark
+let g:airline_theme = 'codedark'
+
+inoremap jj <Esc>`^
+nnoremap gn :bnext<CR>
+nnoremap gp :bprev<CR>
 set number
 set mouse=a
 set smartindent
@@ -176,7 +228,10 @@ set tabstop=4
 set expandtab
 set incsearch
 set hlsearch
-set fileencodings=utf8
+set fileencodings=utf8,gbk
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
+set clipboard+=unnamedplus
+set foldmethod=syntax
+set foldlevelstart=99
