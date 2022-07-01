@@ -15,9 +15,10 @@ Plug 'voldikss/vim-floaterm'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'ptzz/lf.vim'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-markdownlint', 'coc-pairs', 'coc-clangd', 'coc-git', 'coc-tsserver', 'coc-markdown-preview-enhanced', 'coc-webview']
+let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-markdownlint', 'coc-pairs', 'coc-clangd', 'coc-git', 'coc-tsserver']
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -193,6 +194,7 @@ let g:floaterm_opener = 'edit'
 hi Floaterm guibg=black
 hi FloatermBorder guibg=orange guifg=cyan
 autocmd TermOpen * setlocal nonumber norelativenumber
+let g:floaterm_autoclose = 0
 
 " vim-cpp-modern
 let g:cpp_attributes_highlight = 1
@@ -216,6 +218,12 @@ set t_ut=
 colorscheme codedark
 let g:airline_theme = 'codedark'
 
+" lf
+let g:lf_width = 0.9
+let g:lf_height = 0.8
+let g:lf_command_override = 'export EDITOR="floaterm" && lf '
+
+set encoding=UTF-8
 inoremap jj <Esc>`^
 nnoremap gn :bnext<CR>
 nnoremap gp :bprev<CR>
