@@ -34,6 +34,11 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 " remap for complete to use tab and <cr>
@@ -43,9 +48,6 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
-
-hi CocSearch ctermfg=12 guifg=#18A3FF
-hi CocMenuSel ctermbg=109 guibg=#13354A
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -129,27 +131,6 @@ nnoremap <silent> <space>f :FzfFiles<CR>
 nnoremap <silent> <space>a :exe 'FzfAg '.expand('<cword>') <CR>
 nnoremap <silent> <space>b :FzfBuffers <CR>
 
-" aireline
-let g:airline_theme='simple'
-set t_Co=256
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#symbol = '!'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.whitespace = 'Ξ'
-
 " nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -167,9 +148,7 @@ let g:asynctasks_term_pos = 'floaterm_reuse'
 let g:asynctasks_term_rows = 10
 let g:asynctasks_term_reuse = 1
 let g:asynctasks_term_hidden = 1
-noremap <silent><F4> :AsyncTask tmake<cr>
-noremap <silent><F5> :AsyncTask tcc<cr>
-noremap <silent><F9> :AsyncTask tcc_transfer<cr>
+noremap <silent><F5> :AsyncTask run<cr>
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 
 let g:floaterm_keymap_toggle = '<F6>'
@@ -201,15 +180,28 @@ augroup END
 let g:codedark_term256=1
 set t_ut=
 colorscheme codedark
+
+" coc popups highlight after colorscheme
+hi CocSearch ctermfg=12 guifg=#18A3FF
+hi CocMenuSel ctermbg=128 guibg=#13354A
+
+" airline_theme
 let g:airline_theme = 'codedark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " lf
 let g:lf_width = 0.9
 let g:lf_height = 0.8
 let g:lf_command_override = 'export EDITOR="floaterm" && lf '
 
+" vim-cpp-modern
+let g:cpp_no_cpp20 = 1
+let g:cpp_no_cpp17 = 1
+let g:cpp_no_cpp14 = 1
+
 set encoding=UTF-8
-inoremap jj <Esc>`^
 nnoremap gn :bnext<CR>
 nnoremap gp :bprev<CR>
 set number
@@ -226,5 +218,4 @@ set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
 set clipboard+=unnamedplus
-set foldmethod=syntax
-set foldlevelstart=99
+
