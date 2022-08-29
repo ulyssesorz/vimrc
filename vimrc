@@ -11,11 +11,11 @@ Plug 'fatih/vim-go'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'ptzz/lf.vim'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-snippets', 'coc-pyright', 'coc-go', 'coc-json', 'coc-lists', 'coc-cmake', 'coc-sh', 'coc-markdownlint', 'coc-pairs', 'coc-clangd', 'coc-git', 'coc-tsserver']
