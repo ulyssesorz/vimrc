@@ -191,15 +191,16 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" lf
-let g:lf_width = 0.9
-let g:lf_height = 0.8
-let g:lf_command_override = 'export EDITOR="floaterm" && lf '
-
 " vim-cpp-modern
 let g:cpp_no_cpp20 = 1
 let g:cpp_no_cpp17 = 1
 let g:cpp_no_cpp14 = 1
+
+
+" lf
+let g:lf_width = 0.9
+let g:lf_height = 0.8
+let g:lf_command_override = 'export EDITOR="floaterm" && lf '
 
 set encoding=UTF-8
 nnoremap gn :bnext<CR>
