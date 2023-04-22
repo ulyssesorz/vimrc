@@ -16,6 +16,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'madox2/vim-ai'
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -217,6 +218,15 @@ map <leader>lf :Lf<CR>
 let g:cpp_no_cpp20 = 1
 
 nnoremap <silent> <leader>cf :let @*=expand("%:p")<CR>
+
+let g:vim_ai_chat = {
+\  "options": {
+\    "model": "gpt-4",
+\    "temperature": 0.2,
+\  },
+\}
+xnoremap <leader>c :AIEdit 
+nnoremap <leader>c :AIEdit 
 
 set encoding=UTF-8
 nnoremap gn :bnext<CR>
