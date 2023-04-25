@@ -217,16 +217,19 @@ map <leader>lf :Lf<CR>
 " vim-cpp-modern
 let g:cpp_no_cpp20 = 1
 
-nnoremap <silent> <leader>cf :let @*=expand("%:p")<CR>
-
 let g:vim_ai_chat = {
 \  "options": {
 \    "model": "gpt-4",
 \    "temperature": 0.2,
 \  },
 \}
-xnoremap <leader>c :AIEdit 
-nnoremap <leader>c :AIEdit 
+xnoremap <leader>e :AIEdit 
+nnoremap <leader>e :AIEdit 
+nnoremap <leader>a :AI<CR>
+xnoremap <leader>a :AI<CR>
+
+nnoremap <silent> <leader>cf :let @*=expand("%:p")<CR>
+nmap <space>e <Cmd>CocCommand explorer<CR>
 
 set encoding=UTF-8
 nnoremap gn :bnext<CR>
@@ -244,4 +247,5 @@ set fileencodings=utf8,gbk
 set wildmenu wildmode=full
 set wildchar=<Tab> wildcharm=<C-Z>
 set backspace=indent,eol,start
-set clipboard^=unnamed,unnamedplus
+set clipboard+=unnamedplus
+
