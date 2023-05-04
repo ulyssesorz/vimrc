@@ -17,3 +17,5 @@ ColumnLimit: 120
 TabWidth: 4
 UseTab: Never
 BreakBeforeBraces: Allman
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true

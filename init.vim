@@ -28,6 +28,8 @@ let g:coc_global_extensions = [
        \ 'coc-cmake',
        \ 'coc-sh',
        \ 'coc-markdownlint',
+       \ 'coc-webview',
+       \ 'coc-markdown-preview-enhanced',
        \ 'coc-pairs',
        \ 'coc-clangd',
        \ 'coc-git',
