@@ -82,5 +82,13 @@ require('packer').startup(function(use)
         },
         config = require("plugins.cmake-tools").config()
     }
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.1',
+            requires = { 'nvim-lua/plenary.nvim' },
+            config = require("plugins.telescope").config()
+        },
+        config = require("plugins.telescope-ui-select").config()
+    }
 end)
