@@ -17,6 +17,7 @@ function M.config()
         'coc-git',
         'coc-tsserver',
         'coc-explorer',
+        'coc-lua',
     }
 
     -- TextEdit might fail if hidden is not set.
