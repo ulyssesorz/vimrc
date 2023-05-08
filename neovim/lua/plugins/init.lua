@@ -44,7 +44,7 @@ require('packer').startup(function(use)
             },
             {
                 'junegunn/fzf',
-                run = 'cd ~/.fzf && ./install --all',
+                run = 'cd ~/.fzf && ./install --all && go build . && mv fzf bin',
             }
         },
         config = run_config('plugins.cocfzf')
