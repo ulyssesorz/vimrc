@@ -17,7 +17,7 @@ fi
 
 mkdir -p ~/.config/nvim && cp -r vimrc/neovim/* ~/.config/nvim
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 rm -rf vimrc
 ```
