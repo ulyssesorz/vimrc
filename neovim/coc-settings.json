@@ -1,0 +1,47 @@
+{
+    "snippets.ultisnips.pythonPrompt": false,
+    "git.addGBlameToVirtualText": true,
+    "python.pythonPath": "python3",
+    "inlayHint.enable": false,
+    "callHierarchy.splitCommand": "botright 60vs",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.mouseMode": "singleclick",
+    "explorer.file.root.template": "[icon] [title] [git & 1][hidden & 1][root]",
+    "explorer.buffer.child.template": "[git | 2] [selection | 1] [bufnr] [name][modified][readonly]",
+    "explorer.position": "floating",
+    "explorer.sources": [
+        {
+            "name": "bookmark",
+            "expand": false
+        },
+        {
+            "name": "buffer",
+            "expand": true
+        },
+        {
+            "name": "file",
+            "expand": true
+        }
+    ],
+    "Lua.diagnostics.globals": [
+        "vim"
+    ],
+    "languageserver": {
+        "proto": {
+            "command": "pls",
+            "filetypes": [
+                "proto",
+                "cpp"
+            ]
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ]
+        }
+    }
+}

@@ -8,7 +8,6 @@ function M.config()
         'coc-json',
         'coc-lists',
         'coc-cmake',
-        'coc-sh',
         'coc-markdownlint',
         'coc-webview',
         'coc-markdown-preview-enhanced',
@@ -138,7 +137,7 @@ function M.config()
     vim.cmd('hi CocSearch ctermfg=12 guifg=#18A3FF')
     vim.cmd('hi CocMenuSel ctermbg=128 guibg=#13354A')
 
-    vim.keymap.set('n', '<space>e', ':CocCommand explorer<CR>', { silent = true, noremap = true })
+    vim.keymap.set('n', '<space>e', [[:CocCommand explorer<CR>]], { silent = true, noremap = true })
     vim.keymap.set('n', '<F9>', ':CocCommand git.browserOpen<CR>', { silent = true })
 end
 

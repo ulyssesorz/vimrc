@@ -112,8 +112,4 @@ require('packer').startup(function(use)
         },
         config = run_config('plugins.telescope-ui-select')
     }
-    use {
-        'fgheng/winbar.nvim',
-        config = run_config("plugins.winbar")
-    }
 end)
