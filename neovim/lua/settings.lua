@@ -18,4 +18,3 @@ vim.opt.wildcharm = ('\t'):byte()
 vim.opt.clipboard:append('unnamed')
 vim.opt.clipboard:append('unnamedplus')
 
-vim.keymap.set('n', '<leader>cf', [[:let @*=expand('%:p')<CR>]], { noremap = true, silent = true })
