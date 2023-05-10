@@ -8,7 +8,8 @@
     "explorer.mouseMode": "singleclick",
     "explorer.file.root.template": "[icon] [title] [git & 1][hidden & 1][root]",
     "explorer.buffer.child.template": "[git | 2] [selection | 1] [bufnr] [name][modified][readonly]",
-    "explorer.position": "floating",
+    "explorer.quitOnOpen": true,
+    "explorer.position": "right",
     "explorer.sources": [
         {
             "name": "bookmark",
