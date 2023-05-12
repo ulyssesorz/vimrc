@@ -374,6 +374,8 @@ function M.config()
 
     -- Now don't forget to initialize lualine
     lualine.setup(config)
+
+    vim.keymap.set('n', '<F5>', [[:lua vim.cmd('CMakeRun')<cr>]], { noremap = true, silent = true })
 end
 
 return M

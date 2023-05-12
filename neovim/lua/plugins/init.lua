@@ -16,6 +16,9 @@ local function run_config(config_module)
     require(config_module).config()
 end
 
+local function local_pack()
+end
+
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use {
@@ -112,4 +115,5 @@ require('packer').startup(function(use)
         },
         config = run_config('plugins.telescope-ui-select')
     }
+    local_pack()
 end)
