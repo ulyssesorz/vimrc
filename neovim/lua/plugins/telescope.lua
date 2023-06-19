@@ -7,7 +7,8 @@ function M.config()
 
     vim.keymap.set('n', '<space>f', builtin.find_files, {})
     vim.keymap.set('n', '<space>a',
-        function() builtin.live_grep({ default_text = vim.fn.expand("<cword>"), additional_args = { '-w' } }) end)
+        function() builtin.live_grep({ default_text = vim.fn.expand("<cword>"),
+                additional_args = { '-w', '--sort', 'path' } }) end)
 end
 
 return M
