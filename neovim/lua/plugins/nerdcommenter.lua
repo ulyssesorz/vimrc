@@ -8,8 +8,10 @@ function M.config()
     vim.g.NERDCommentEmptyLines = 1
     vim.g.NERDTrimTrailingWhitespace = 1
     vim.g.NERDToggleCheckAllLines = 1
-    vim.keymap.set('n', '<C-_>', '<leader>c<Space>', { silent = true })
-    vim.keymap.set('v', '<C-_>', '<leader>c<Space>', { silent = true })
+    vim.keymap.set('n', '<C-_>', '<Plug>NERDCommenterToggle', {})
+    vim.keymap.set('v', '<C-_>', '<Plug>NERDCommenterToggle', {})
+    vim.keymap.set('n', '<leader>c<Space>', '<Plug>NERDCommenterToggle', {})
+    vim.keymap.set('v', '<leader>c<Space>', '<Plug>NERDCommenterToggle', {})
 end
 
 return M
