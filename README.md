@@ -1,13 +1,23 @@
-# vimrc
+# Install for linux
 
-Install [nodejs](https://nodejs.org/en/download/) >= 12.12:
+```shell
+#remove all
+rm -rf  ~/.local/share/nvim/site/pack/packer/start/
 
-```sh
-curl -sL install-node.now.sh/lts | bash
-```
+# install packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-Download vimrc
+git clone https://github.com/lasorda/vimrc.git
 
-```sh
-curl -sSL -o ~/.vimrc https://raw.githubusercontent.com/lasorda/vimrc/master/vimrc
+if [ -d ~/.config/nvim ]; then
+  timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+  mv ~/.config/nvim ~/.config/nvim_$timestamp
+fi
+
+mkdir -p ~/.config/nvim && cp -r vimrc/* ~/.config/nvim
+
+vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+rm -rf vimrc
 ```
