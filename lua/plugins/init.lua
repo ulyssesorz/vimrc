@@ -22,6 +22,10 @@ end
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use {
+        'tomasiser/vim-code-dark',
+        config = run_config('plugins.vim-code-dark')
+    }
+    use {
         'neoclide/coc.nvim',
         branch = 'release',
         config = run_config('plugins.coc')
@@ -79,10 +83,6 @@ require('packer').startup(function(use)
     use {
         'junegunn/rainbow_parentheses.vim',
         config = run_config('plugins.rainbow_parentheses')
-    }
-    use {
-        'tomasiser/vim-code-dark',
-        config = run_config('plugins.vim-code-dark')
     }
     use {
         'vim-scripts/DoxygenToolkit.vim',
