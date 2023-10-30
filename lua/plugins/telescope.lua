@@ -4,6 +4,12 @@ function M.config()
     require('telescope').setup {
         defaults = {
             layout_strategy = 'vertical',
+            mappings = {
+                i = {
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous"
+                }
+            }
         },
     }
     local builtin = require('telescope.builtin')
