@@ -65,7 +65,7 @@ function M.config()
     vim.keymap.set('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
     vim.keymap.set('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
     vim.keymap.set('n', 'gr', '<Plug>(coc-references)', { silent = true })
-    vim.keymap.set('n', 'go', '<C-o>', { silent = true })
+    vim.keymap.set('n', 'go', '<C-o>zz', { silent = true })
 
     -- Use K to show documentation in preview window.
     vim.keymap.set('n', 'K', ':call v:lua.show_documentation()<CR>', { silent = true })
