@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.profile_comm
 alias ls=exa
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
-export PATH=$HOME/.local/python/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH:/usr/local/go/bin/:$HOME/.cargo/bin:$HOME/.local/tools_bin/tools/patchbuild
+export PATH=$HOME/.local/python/bin:$HOME/.local/bin:$HOME/.go/bin:/usr/local/go/bin/:$HOME/.cargo/bin:$HOME/.local/tools_bin/patchbuild:$HOME/.local/node/bin:$PATH:$HOME/.ft
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export RUNEWIDTH_EASTASIAN=0
 
@@ -34,11 +34,11 @@ fmt_stamp() { date  +%s --utc -d "$*" }
 vim(){ if command -v floaterm &> /dev/null;then floaterm $@;else nvim -p $@; fi }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -z "$TMUX"  ] && ! [ -z "$SSH_TTY" ] && { tmux attach || exec tmux new-session && exit;}
+
+[ -z "$TMUX"  ] && [ -z "$DISTROBOX_ENTER_PATH" ] && ! [ -z "$SSH_TTY" ] && { tmux attach || exec tmux new-session && exit; }
 
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-[[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
-alias dev="docker exec -it dev su - zhihaopan"
-export PATH="$PATH:$HOME/.ft"
 alias cat='bat -pp'
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

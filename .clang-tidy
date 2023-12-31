@@ -22,3 +22,4 @@ Checks: >
     -readability-braces-around-statements,
     -readability-identifier-length,
     -readability-implicit-bool-conversion,
+    -modernize-use-trailing-return-type,
