@@ -20,7 +20,7 @@ export PATH=$HOME/.local/python/bin:$HOME/.local/bin:$HOME/.go/bin:/usr/local/go
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export RUNEWIDTH_EASTASIAN=0
 
-alias f='files_list=$(fzf -m --layout reverse --height=80%  --border=bold --preview "bat --style=numbers --color=always --line-range :500 {}") && if command -v floaterm &> /dev/null;then floaterm $files_list;else nvim -p $files_list;fi'
+alias f='files_list=$(fzf -m --layout reverse --height=80%  --border=bold --preview "bat --style=numbers --color=always --line-range :500 {}") && if command -v floaterm &> /dev/null;then floaterm $files_list;else nvim $files_list;fi'
 
 alias tcc="patchbuild build -m64 -e --include-commit  --profile=debug --gcc-version=gcc7"
 alias tmake="patchbuild build -m64 -e --download-genfiles --compile-command-query='--merge' --include-commit  --gcc-version=gcc7"
@@ -31,7 +31,7 @@ alias a='vim ~/.notes.txt +9999'
 fmt_date() { date '+%Y-%m-%d %H:%M:%S' -d @"$@" }
 fmt_stamp() { date  +%s --utc -d "$*" }
 
-vim(){ if command -v floaterm &> /dev/null;then floaterm $@;else nvim -p $@; fi }
+vim(){ if command -v floaterm &> /dev/null;then floaterm $@;else nvim $@; fi }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
