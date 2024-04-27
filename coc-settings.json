@@ -38,13 +38,6 @@
         "vim"
     ],
     "languageserver": {
-        "proto": {
-            "command": "pls",
-            "filetypes": [
-                "proto",
-                "cpp"
-            ]
-        },
         "bash": {
             "command": "bash-language-server",
             "args": [
