@@ -29,7 +29,6 @@ vim(){ if command -v floaterm &> /dev/null;then floaterm $@;else nvim $@; fi }
 
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-alias cat='bat -pp'
 alias v='nvim'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
