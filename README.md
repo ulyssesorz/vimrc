@@ -21,3 +21,7 @@ vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 rm -rf vimrc
 ```
+
+setting.json放.vscode里
+
+clang相关的三个文件放工作目录下
